@@ -1,8 +1,55 @@
-@media screen and (max-width: 1200px) {
+
+@media screen and (max-width: 1400px) {
+  #profile {
+    height: 83vh;
+    margin-bottom: 6rem;
+  }
+  .about-containers {
+    flex-wrap: wrap;
+  }
+  #contact,
+  #projects {
+    height: fit-content;
+  }
+}
+@media screen and (max-width: 1400px) {
    #desktop_nav{
     display: none;
    }
     #hamburger-nav {
       display: flex;
     }
-}
+    #profile,
+    .section-container {
+      display: block;
+    }
+    .arrow {
+      display: none;
+    }
+    section,
+    .section-container {
+      height: fit-content;
+    }
+    section {
+      margin: 0 5%;
+    }
+    .section__pic-container {
+      width: 275px;
+      height: 275px;
+      margin: 0 auto 2rem;
+    }
+    .about-containers {
+      margin-top: 0;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .skills-container {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+      align-items: center;
+    }
+  
+    .skill-category {
+      width: 100%; /* Take up full width on smaller screens */
+    }
+  }

@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="https://i.ibb.co/zRsTj3p/Frame-1-37.png">
+    <script src="https://kit.fontawesome.com/5ed9f8e5e4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" class="stylesheet">
+
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="media.css"/>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script> 
 </head>
 <body>
     <nav id="desktop_nav">
@@ -37,12 +42,136 @@
         </div>
       </nav>
       <section id="profile">
-        <div class="section_pic-container">
-            <!-- <img src="ss.png" alt="sumaiya khan profile picture"> -->
+        <div class="section__pic-container">
+          <img src="profile.png" alt="sumaiya khan profile picture" id="imgs"/>
         </div>
-
+        <div class="section__text">
+          <p class="section__text__p1" style="color: white;">Hello, I'm</p>
+          <h1 class="title" style="color: orange;">Sumaiya Khan</h1>
+          <!-- <p class="section__text__p2" style="color: white;">And I'm  <span class="multiple-text" ></span></p> -->
+          <h3>And I'm <span class="text" style="color: orange;"> </span></h3>
+          <p style="color: white;">This is my personal portfolio website to show all<br>Details and work experience and web development</p>
+          <div class="btn-container">
+            <button
+              class="btn btn-color-2"
+              onclick="window.open('./assets/resume-example.pdf')"
+            >
+              Download CV
+            </button>
+            <button class="btn btn-color-1" onclick="location.href='./#contact'">
+              Contact Info
+            </button>
+          </div>
+          <div id="socials-container">
+            <a href="mailto:sumaiyakhan3572213@gmail.com"><i class="fa fa-envelope"></i></a>
+            <a href="https://github.com/sumaiyashifa"><i class="fa-brands fa-github"></i></a>
+            <!-- <a href="https://leetcode.com/sowndharnewbie/"><i class="fa fa-code"></i></a> -->
+            <a href="https://www.linkedin.com/in/sumaiya-khan-931532263/"><i class="fa-brands fa-linkedin"></i></a>
+            
+          </div>
+        </div>
+        <div class="homes"></div>
       </section>
+      
+    <section id="about">
+      <p class="section__text__p1" style="color: aqua;">Get To Know More</p>
+      <h1 class="title">About<span style="color: orange;"> Me</span> </h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="about.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="education.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3 style="color: orange;">Education</h3>
+              <p style="color: white;">Secondary School Certificate Examination (2018)<br /> Higher Secondary Certificate Examination(2020)</p>
+            </div>
+            <div class="details-container">
+              <img
+                src="KUET logo.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3 style="color: orange;">Education</h3>
+              <p style="color: white;">B.Sc. in Computer Science and Engineering</p>
+              <h2 style="color: rgb(191, 178, 178);">2021-Present</h2>
+            </div>
+          </div>
+          <div class="text-container">
+            <p   style="color: white;">
+              I am currently enrolled third year first term in the Department of Computer Science and Engineering at Khulna University of Engineering & Technology, where I am actively pursuing my studies and exploring various aspects of the field.
+
+              My academic journey began at Collegiate Girls' High School and college, and I continued to Dinajpur Government College for my intermediate college education. I am proud to be part of the prestigious Khulna University of Engineering & Technology, where I am actively engaged in my coursetravelling and exploring various aspects of computer science.
+              
+              As I progress through my academic career, I am developing a strong foundation in computer science principles and technologies. I look forward to further opportunities for learning and growth, with a keen interest in the dynamic and evolving field of computer science.
+            </p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#experience'"
+      />
+    </section>
+    <!-- <div id="skills">
+      <div class="container">
+        <h1 class="sub-title"> My Skills</h1>
+        <div class="skills-list">
+
+        </div>
+      </div>
+    </div> -->
+    <!-- ... (Your existing HTML) ... -->
+
+<div id="skills" class="skills-section">
+  <h1 class="title">My <span style="color: orange;">Skills</span></h1>
+
+  <div class="skills-container">
+    <div class="skill-category">
+      <i class="fa-solid fa-code"></i>
+      <h3 style="color: aqua;">Coding Languages</h3>
+      <ul>
+        <li>Java</li>
+        <li>Python</li>
+        <li>C++</li>
+        <li>C</li>
+        <li>Kotlin</li>
+        <li>Dart</li>
+
+        <!-- Add more languages as needed -->
+      </ul>
+    </div>
+
+    <div class="skill-category">
+      <i class="fa-solid fa-crop"></i>
+      <h3 style="color: aqua;">Frontend Development</h3>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>PhP</li>
+        <!-- Add more frontend skills as needed -->
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ... (Your existing HTML) ... -->
+
+      
     <script src="script.js"></script>
+    
     
 </body>
 </html>
