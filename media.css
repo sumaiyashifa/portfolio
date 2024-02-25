@@ -35,6 +35,9 @@
     .arrow {
       display: none;
     }
+    .arrowed {
+      display: none;
+    }
     section,
     .section-container {
       height: fit-content;
@@ -215,12 +218,20 @@
 /* Adjustments for smaller screens */
 
 @media screen and (max-width: 600px) {
+  .section-title{
+    font-size: 24px;
+    margin-bottom: -110px;
+  }
   /* Make the profile section more compact */
   #profile {
     height: auto;
     margin-bottom: 0;
   }
-
+.slide-pic .slideshow {
+  margin-left: 30px;
+  width: 80%;
+  height: 70%;
+}
   /* Center align profile picture */
   .section__pic-container
    {
@@ -286,6 +297,7 @@
   }
 }
 @media screen and (max-width: 768px) {
+ 
   .animated-text {
     font-size: 2rem; /* Decrease font size for smaller screens */
   }
@@ -295,6 +307,7 @@
 }
 
 @media screen and (max-width: 480px) {
+  
    .animated-background{
     width: 100%;
     height: 100%

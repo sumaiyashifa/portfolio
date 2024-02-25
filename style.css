@@ -25,7 +25,7 @@ body.dark-mode {
 
 body {
   font-family: "Poppins", sans-serif;
-  background: var(--bg-color);
+  background:var(--bg-color);
   color: var(--text-color);
 }
 html {
@@ -392,6 +392,12 @@ section {
   right: -7rem;
   bottom: .2rem;
 }
+.arrowed {
+  position: absolute;
+  right: -7rem;
+  bottom: 5rem;
+}
+
 
 .details-container {
   padding: 1.5rem;
@@ -431,9 +437,12 @@ section {
   justify-content: space-around;
   margin-top: 20px;
 }
+.transition{
+  width: 50%;
+}
 
 .skill-category {
-  text-align: center;
+  text-align:left;
   color: white;
   flex: 1;
   margin: 10px;
@@ -466,6 +475,7 @@ section {
   font-size: 1.2em;
   position: relative;
 }
+
 
 /* Custom arrow for list items */
 .skill-category li:before {
@@ -856,36 +866,7 @@ transition: all 300ms ease;
 }
 /* Add this CSS to style the progress bars */
 
-/* .progressbar {
-  margin-bottom: 20px;
-}
 
-.circle {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  background-color: #f2f2f2;
-  border-radius: 50%;
-}
-
-.circle canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.number {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.caption {
-  text-align: center;
-} */
 .skillss_section {
   padding: 50px 0;
   background-color:var(--second-bg-color);
@@ -894,17 +875,10 @@ transition: all 300ms ease;
 .skillss__container {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
+  gap: 60px;
   transition: none;
 }
-.ssk:hover {
-  transition: none;
- 
-}
-.ssk {
-  transition: none;
-  flex: 1;
-}
+
 
 .skillss__subtitle {
   font-size: 24px;
@@ -915,7 +889,7 @@ transition: all 300ms ease;
   margin-bottom: 10px;
 }
 
-.skillss__name {
+.custom-skill-name {
   font-weight: bold;
 }
 
@@ -923,57 +897,15 @@ transition: all 300ms ease;
   font-weight: bold;
 }
 
-.skillss__bar {
-  height: 10px;
+.custom-skill-bar {
+  height: 6px;
   background-color: #89d2e4;
   display: block;
   border-radius: 20px; 
 }
 
-.s0, .s1, .s2, .s3, .s4 {
-  transition: none;
-}
 
-.s0 { width: 80%; } 
-.s1 { width: 60%; } 
-.s2 { width: 90%; } 
-.s3 { width: 80%; } 
-.s4 { width: 70%; } 
-.s5 { width: 55%; }
-.s6 { width: 90%; }
-.s7 { width: 85%; }
-.s8 { width: 60%; }
-.s9 { width: 65%; } 
-/* .skillss__bar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #ddd;
-  position: relative;
-  animation: progressAnimation 1.5s forwards; 
-}
 
-@keyframes progressAnimation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(var(--degrees));
-  }
-}
-
-.skillss__bar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #6C63FF; 
-  transform-origin: center;
-  transform: rotate(0deg);
-} */
 #artwork {
   padding: 100px 0;
 }
@@ -1039,9 +971,9 @@ transition: all 300ms ease;
   width: 100%;
   height: 100%;
   background-image: url('drop.jpg'); /* Replace 'your-background-image.jpg' with your image path */
-  background-size: cover;
+  background-size: auto;
   z-index: -1;
-  animation: background-animation 20s infinite;
+  animation: background-animation 30s infinite;
 }
 .water-drop {
   position: absolute;
@@ -1051,6 +983,7 @@ transition: all 300ms ease;
   background-size: contain;
   animation: drop-animation 10s linear infinite;
 }
+
 @keyframes background-animation {
   0% {
     background-position: 0 0;
@@ -1084,30 +1017,55 @@ transition: all 300ms ease;
 .animated-text {
   font-size: 3rem;
   color: white;
+  text-shadow: 2px 2px rgb(0, 123, 255);
   font-family: fantasy; /* Use a fantasy font for a fantasy-like effect */
   animation: text-animation 2s infinite;
 }
 .water-drop.drop-1 {
   left: 10%; /* Adjust left position of the first water drop */
-  animation-delay: 0s; /* Delay animation for a smooth effect */
+  animation-delay: 1s; /* Delay animation for a smooth effect */
 }
 
 .water-drop.drop-2 {
-  left: 20%; /* Adjust left position of the second water drop */
+ bottom: 30%; /* Adjust left position of the second water drop */
   animation-delay: 2s; /* Delay animation */
 }
 
 .water-drop.drop-3 {
   left: 30%; /* Adjust left position of the third water drop */
-  animation-delay: 4s; /* Delay animation */
+  animation-delay: 1s; /* Delay animation */
 }
 
 .water-drop.drop-4 {
-  left: 40%; /* Adjust left position of the fourth water drop */
-  animation-delay: 6s; /* Delay animation */
+  right: 40%; /* Adjust left position of the fourth water drop */
+  animation-delay: 1; /* Delay animation */
 }
 
 .water-drop.drop-5 {
+   left: 60%;
+  bottom: 50%;  
+  animation-delay: 1; /* Delay animation */
+}
+.water-drop.drop-6 {
+  left: 70%;
+  bottom: 60%;
+  animation-delay: 1s; /* Delay animation */
+}
+.water-drop.drop-7 {
+  left: 80%; 
+  bottom: 10%;
+  animation-delay: 1s; /* Delay animation */
+}
+.water-drop.drop-8 {
+  left: 90%; 
+  top: 70%;
+  animation-delay: 1s; /* Delay animation */
+}
+.water-drop.drop-9 {
+  left: 100%; 
+  animation-delay: 1s; /* Delay animation */
+}
+.water-drop.drop-10 {
   left: 50%; /* Adjust left position of the fifth water drop */
   animation-delay: 8s; /* Delay animation */
 }
@@ -1121,4 +1079,90 @@ transition: all 300ms ease;
   100% {
     opacity: 0;
   }
+}
+
+
+.skills-column {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.custom-skill {
+  margin-bottom: 10px;
+}
+
+.custom-skill-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.custom-skill-bar {
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.custom-skill-level {
+  height: 100%;
+  background-color: var(--main-color); /* Change color as needed */
+  transition: width 1s ease; /* Adjust animation duration as needed */
+}
+
+
+
+.slide-pic {
+  margin-bottom: 100px;
+  margin-top: 70px;
+  position: relative;
+  margin-left: -30px;
+  width: 100%;
+  height: 450px; /* Adjust height as needed */
+}
+
+.slide-pic .slideshow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%; /* Adjust width as needed */
+  height: 100%; /* Adjust height as needed */
+  box-shadow: 0px 5px 8px rgba(19, 181, 225, 0.3);
+  animation: animate-slideshow 20s infinite;
+  background-size: contain; /* Ensure the background image covers the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent background image from repeating */
+} 
+
+@keyframes animate-slideshow {
+  0% {
+    background-image: url(office.png);
+  }
+  20% {
+    background-image: url(student.png);
+  }
+  40% {
+    background-image: url(KUET\ logo.png);
+  }
+  60% {
+    background-image: url(about.png);
+  }
+  80% {
+    background-image: url(ss.png);
+  }
+  100% {
+    background-image: url(student.png);
+  }
+}
+
+.section-title {
+  margin-top: 50px;
+  text-align: center;
+  /* font-size: 24px; */
+  color: #1465a3; /* Adjust the color as needed */
+   /* Adjust the margin as needed */
+}
+.skills__data{
+  display: inline-block;
 }

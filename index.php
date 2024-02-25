@@ -1,3 +1,10 @@
+<?php 
+$connection=mysqli_connect("localhost","root","","home");
+$statement="SELECT * FROM `hometable` WHERE `id`=1";
+$fetch=mysqli_query($connection,$statement);
+$row=mysqli_fetch_assoc($fetch);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,15 +20,15 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script> 
 </head>
 <body>
-  <header> 
+<header> 
     <!-- <h1>My Portfolio</h1> -->
     <label class="switch">
         <input type="checkbox" id="darkModeToggle">
-       <!-- <span class="slider round"></span> -->
+       <span class="slider round"></span>
     </label>
 </header>
     <nav id="desktop_nav">
-        <div class="logo">sumaiya khan</div>
+        <div class="logo"><?php echo $row['name']?></div>
         <div>
             <ul class="nav-links">
                 <li><a href="#home" style="--i:1;">Home</a></li>
@@ -29,12 +36,13 @@
                 <li><a href="#skill"style="--i:3;">Expertise</a></li>
                 <li><a href="#work"style="--i:4;">Skill</a></li>
                 <li><a href="#projects"style="--i:5;">Projects</a></li>
-                <li><a href="#contact"style="--i:6;">Contact</a></li>
+                <li><a href="#sp"style="--i:6;">Artwork</a></li>
+                <li><a href="#contact"style="--i:7;">Contact</a></li>
             </ul>
         </div>
     </nav>
     <nav id="hamburger-nav">
-        <div class="logo">sumaiya khan</div>
+        <div class="logo"><?php echo $row['name']?></div>
         <div class="hamburger-menu">
           <div class="hamburger-icon" onclick="toggleMenu()">
             <span></span>
@@ -46,20 +54,21 @@
             <li><a href="#skill" onclick="toggleMenu()">Expertise</a></li>
             <li><a href="#work" onclick="toggleMenu()">skill</a></li>
             <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="#sp" onclick="toggleMenu()">Artwork</a></li>
             <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
           </div>
         </div>
       </nav>
       <section id="profile">
         <div class="section__pic-container">
-          <img src="profile.png" alt="sumaiya khan profile picture" id="imgs"/>
+          <img src=<?php echo $row['picture']?> alt="sumaiya khan profile picture" id="imgs"/>
         </div>
         <div class="section__text">
-          <p class="section__text__p1" style="color: white;">Hello, I'm</p>
-          <h1 class="title" style="color: orange;">Sumaiya Khan</h1>
+          <p class="section__text__p1" style="color: white;"><?php echo $row['h1']?></p>
+          <h1 class="title" style="color: orange;"><?php echo $row['name']?></h1>
           <!-- <p class="section__text__p2" style="color: white;">And I'm  <span class="multiple-text" ></span></p> -->
           <h3>And I'm <span class="text" style="color: orange;"> </span></h3>
-          <p style="color: white;">This is my personal portfolio website to show all<br>Details and work experience and web development</p>
+          <p style="color: white;"><?php echo $row['description']?></p>
           <div class="btn-container">
             <button
               class="btn btn-color-2"
@@ -72,16 +81,39 @@
             </button>
           </div>
           <div id="socials-container">
-            <a href="mailto:sumaiyakhan3572213@gmail.com" style="--i:7;"><i class="fa fa-envelope"></i></a>
-            <a href="https://github.com/sumaiyashifa" style="--i:8;"><i class="fa-brands fa-github"></i></a>
-             <a href="https://leetcode.com/sowndharnewbie/" style="--i:9;"><i class="fa fa-code"></i></a> 
-            <a href="https://www.linkedin.com/in/sumaiya-khan-931532263/" style="--i:10;"><i class="fa-brands fa-linkedin"></i></a>
             
+            <?php
+                if($row['email']){ ?>
+                <a href=<?php echo $row['email']?> target="_blank" style="--i:8;"><i class="fa fa-envelope"></i></a>
+              <?php
+                }
+            ?>
+            <?php
+                if($row['github']){ ?>
+            <a href= <?= $row['github']?> style="--i:9;"><i class="fa-brands fa-github"></i></a>
+            <?php
+                }
+            ?>
+            <?php
+                if($row['code']){ ?>
+             <a href=<?=$row['code']?> target="_blank" style="--i:10;"><i class="fa fa-code"></i></a> 
+             <?php
+                }
+            ?>
+            <?php
+                if($row['linkdin']){ ?>
+            <a href=<?=$row['linkdin']?> style="--i:11;"><i class="fa-brands fa-linkedin"></i></a>
+            <?php
+                }
+            ?>
           </div>
         </div>
         <div class="homes"></div>
       </section>
       
+      <!-- Add this section after the previous sections -->
+
+
     <section id="about">
       <!-- <p class="section__text__p1" style="color: aqua;">Get To Know More</p> -->
       <h1 class="title">About<span style="color: orange;"> Me</span> </h1>
@@ -133,18 +165,27 @@
         onclick="location.href='./#skill'"
       />
     </section>
+    
     <section class="skillss_section" id="skill">
       <h1 class="title">My <span style="color: orange;">Expertise</span></h1>
     
       <div class="skillss__container bd-grid">
         <div class="skill-category">
+        <style>
+              .load0 {
+                width: 0%;
+              }
+              </style>
           <i class="fa-solid fa-code"></i>
-          <h3 style="color: aqua;">Coding Languages</h3>
+          <h3 style="color: orange;">Coding Languages</h3>
+          <!-- <h3 style="color: aqua;">Coding Languages</h3>
           <div class="ssk">
-            <!-- <h3 class="skillss__subtitle">FRONTEND</h3> -->
+             <h3 class="skillss__subtitle">FRONTEND</h3> 
             <div class="skillss__data">
               <span class="skillss__name">Java</span>
               <span class="skillss__number">80%</span>
+             
+              </style>
               <span class="skillss__bar s0"></span>
             </div>
             <div class="skillss__data">
@@ -172,33 +213,109 @@
               <span class="skillss__number">55%</span>
               <span class="skillss__bar s5"></span>
             </div>
+          </div> -->
+          <!-- <h2>Frontend</h2> -->
+
+          <div class="custom-skill">
+          <div class="skill__data">
+            <div class="custom-skill-name">JAVA</div>
+            <div class="skill-level">60%</div>
+            </div>
+            <div class="custom-skill-bar">
+              <div class="custom-skill-level load0" ></div>
+            </div>
+
+
+
           </div>
+          <div class="custom-skill">
+          <div class="skill__data">
+            <div class="custom-skill-name">PYTHON</div>
+            <div class="skill-level">70%</div>
+            </div>
+            <div class="custom-skill-bar">
+              <div class="custom-skill-level load0" ></div>
+            </div>
+          </div>
+          <div class="custom-skill">
+          <div class="skill__data">
+            <div class="custom-skill-name">C</div>
+            <div class="skill-level">75%</div>
+            </div>
+            <div class="custom-skill-bar">
+              <div class="custom-skill-level load0" ></div>
+            </div>
+          </div>
+         
+          <div class="custom-skill">
+            <div class="skill__data">
+            <div class="custom-skill-name">C++</div>
+            <div class="skill-level">80%</div>
+            </div>
+            
+            <div class="custom-skill-bar">
+              <div class="custom-skill-level load0"></div>
+            </div>
+          </div>
+
+          <div class="custom-skill">
+          <div class="skill__data">
+            <div class="custom-skill-name">DART</div>
+            <div class="skill-level">45%</div>
+            </div>
+            <div class="custom-skill-bar">
+              <div class="custom-skill-level load0" ></div>
+            </div>
+          </div>
+          <!-- Add more frontend skills as needed -->
+        
         </div>
     
         <div class="skill-category">
           <i class="fa-solid fa-crop"></i>
-          <h3 style="color: aqua;">Frontend Development</h3>
-          <div class="ssk">
+          <h3 style="color: orange;">Frontend Development</h3>
+          <!-- <div class="ssk"> -->
             <!-- <h3 class="skillss__subtitle">BACKEND</h3> -->
-            <div class="skillss__data">
-              <span class="skillss__name">HTML</span>
-              <span class="skillss__number">90%</span>
-              <span class="skillss__bar s6"></span>
+            <div class="custom-skill">
+            <div class="skill__data">
+            <div class="custom-skill-name">C++</div>
+            <div class="skill-level">80%</div>
             </div>
-            <div class="skillss__data">
-              <span class="skillss__name">CSS</span>
-              <span class="skillss__number">85%</span>
-              <span class="skillss__bar s7"></span>
+            
+            <div class="custom-skill-bar">
+              <div class="custom-skill-level load0"></div>
             </div>
-            <div class="skillss__data">
-              <span class="skillss__name">JAVASCRIPT</span>
-              <span class="skillss__number">60%</span>
-              <span class="skillss__bar s8"></span>
+          </div>
+
+          <div class="custom-skill">
+            <div class="skill__data">
+            <div class="custom-skill-name">C++</div>
+            <div class="skill-level">80%</div>
             </div>
-            <div class="skillss__data">
-              <span class="skillss__name">PHP</span>
-              <span class="skillss__number">65%</span>
-              <span class="skillss__bar s9"></span>
+            
+            <div class="custom-skill-bar">
+              <div class="custom-skill-level load0"></div>
+            </div>
+          </div>
+          
+          <div class="custom-skill">
+            <div class="skill__data">
+            <div class="custom-skill-name">C++</div>
+            <div class="skill-level">80%</div>
+            </div>
+            
+            <div class="custom-skill-bar">
+              <div class="custom-skill-level load0"></div>
+            </div>
+          </div>
+          <div class="custom-skill">
+            <div class="skill__data">
+            <div class="custom-skill-name">C++</div>
+            <div class="skill-level">80%</div>
+            </div>
+            
+            <div class="custom-skill-bar">
+              <div class="custom-skill-level load0"></div>
             </div>
           </div>
           <img
@@ -207,18 +324,25 @@
         class="icon arrow"
         onclick="location.href='./#work'"
       />
-        </div>
-        
+          </div>
+         
+       
+          <!-- <img
+        src="arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#work'"
+      /> -->
       </div>
      
-    </div>
+    
     
      </section> 
 
 
 <section class="skills section" id="work">
  
-  </div>
+  
   <h2 class="title">MY <span style="color: orange;">SKILLS</span></h2>
   <div class="skills__container bd-grid">
     <div class="skills__content">
@@ -248,21 +372,24 @@
       <p class="skills__description">
         Proficient in creating user-friendly interfaces. Skilled in wireframing, prototyping, and design tools like Adobe XD.
       </p>
-      <img
+      <!-- <img
       src="arrow.png"
       alt="Arrow icon"
       class="icon arrow"
       onclick="location.href='./#projects'"
-    />
+    />  -->
     </div>
-   
+    
+     
+  </div>
+      
+ 
    
 </section>
 
-
       <section id="projects">
         <p class="section__text__p1" style="color: aqua;">Browse My Recent</p>
-        <h1 class="title" style="color: orange;">Projects</h1>
+        <h1 class="title" style="color: orange;">PROJECTS</h1>
         <div class="experience-details-container">
           <div class="about-containers">
             <div class="details-container color-container">
@@ -340,11 +467,27 @@
         <img
           src="arrow.png"
           alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='./#contact'"
+          class="icon arrowed"
+          onclick="location.href='./#sp'"
         />
         
     </section>
+
+<h1 class="section-title" style="color: orange;">MY <span style="color: white;">ARTWORK</span></h1>
+<section class="slide-pic" id="sp">
+  
+  
+  <div class="center slideshow">
+  <img
+          src="arrow.png"
+          alt="Arrow icon"
+          class="icon arrowed"
+          onclick="location.href='./#contact'"
+        />
+  </div>
+  
+</section>
+
       <section id="contact">
         <p class="section__text__p1" style="color: aqua;">Get In Touch</p>
         <h1 class="title" style="color: orange;">Contact <span style="color: white;">Me</span></h1>
@@ -366,8 +509,7 @@
             </ul>
           </div>
         </div>
-      </section>
-     
+      </section>      
     <footer>
       <div class="footer-container">
         <div class="footer-logo" style="color: orange;">Sumaiya Khan</div>
@@ -395,42 +537,12 @@
       </div> 
       </div>
     </footer>
-    <!-- <section id="artwork">
-      <div class="section-heading">
-        <h2 class="title">Artwork</h2>
-        <p class="subtitle">Check out some of my drawings</p>
-      </div>
-      <div class="artwork-gallery">
-        
-        <div class="artwork-item">
-          <img src="student.png" alt="Drawing 1">
-          <p class="artwork-description">Description of drawing 1</p>
-        </div>
-        <div class="artwork-item">
-          <img src="student.png" alt="Drawing 1">
-          <p class="artwork-description">Description of drawing 1</p>
-        </div>
-        <div class="artwork-item">
-          <img src="student.png" alt="Drawing 1">
-          <p class="artwork-description">Description of drawing 1</p>
-        </div>
-        <div class="artwork-item">
-          <img src="student.png" alt="Drawing 2">
-          <p class="artwork-description">Description of drawing 2</p>
-        </div>
-       
-      </div>
-      <div class="artwork-background">
-       
-        <div class="background-text">
-          <p>This section showcases some of my drawings. Each piece is a reflection of my creativity and passion for art. From intricate details to bold strokes, my drawings capture various themes and emotions.</p>
-          <p class="text-content">Feel free to explore and immerse yourself in the world of my artwork.</p>
-        </div>
-      </div>
-    </section> -->
+ 
+    
+    <script src="script.js"></script>
    
     
     
-      <script src="script.js"></script>
+      
     </body>
   </html>
