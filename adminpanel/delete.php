@@ -16,18 +16,18 @@ if ($action == 'delete' && !empty($del_id) && ($end == 'c' || $end == 'f')) {
         $table = 'frontend';
     }
 
-    // Delete the record
+    
     $delete_query = "DELETE FROM $table WHERE id=$del_id";
     $delete = mysqli_query($conn, $delete_query);
 
     if ($delete) {
-        // Renumber IDs
+        
         $renumber_query = "SET @count = 0;";
         mysqli_query($conn, $renumber_query);
         $update_query = "UPDATE $table SET id = @count:= @count + 1;";
         mysqli_query($conn, $update_query);
 
-        // Redirect back to the admin panel
+        
         header("location: welcome.php?deletion=success");
         exit();
     } else {

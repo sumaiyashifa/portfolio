@@ -78,7 +78,7 @@ body {
   display: block;
 }
 
-/* Table styling */
+
 h2 {
   
   
@@ -125,16 +125,16 @@ table tbody tr:hover{
  height: 5.1%;
  width: 8%;
 }
-/* Button hover effect */
+
 .update-home:hover{
   background-color: #4b5563;
   color: #ffffff;
 }
-/* Remove bottom border for table rows in the home section */
+
 .home table tbody td {
   border-bottom: none;
 }
-/* Add animation to table rows */
+
 .table-animation {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -151,11 +151,11 @@ table tbody tr:hover{
 }
 @media screen and (max-width: 480px) {
   .update-home {
-    margin-left: 40%; /* Further adjustment for very small screens */
-    width: 15%; /* Further adjustment for very small screens */
+    margin-left: 40%; 
+    width: 15%; 
   }
 }
-/* Inside your CSS file or <style> tag */
+
 .logout-btn {
   text-align: center;
   margin-top: 20px;
@@ -176,7 +176,7 @@ table tbody tr:hover{
 }
 
 #interface {
-  width: calc(100% - 300px); /* Adjusted width to match the mainbody */
+  width: calc(100% - 300px); 
   position: fixed;
   top: 0;
   width: 80%;

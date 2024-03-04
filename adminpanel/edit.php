@@ -76,10 +76,10 @@ if (isset($_POST['submit'])) {
     <div class="container">
         <h2>EDIT SKILL</h2>
 
-        <!-- Form to edit skill -->
+        
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
-            <!-- Hidden input field to capture ID -->
+            
             <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
             <input type="hidden" name="end" value="<?php echo isset($_GET['end']) ? $_GET['end'] : ''; ?>">
 

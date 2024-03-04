@@ -350,12 +350,8 @@ while($rowSkill=mysqli_fetch_assoc($fetchSkill)){
               </div>
              
               <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href=<?= $rowProject['link']?>"
-                >
-                  Github
-                </button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='<?= $rowProject['link']?>'">Github</button>
+
                 
               </div>
               <div class="project-slider">

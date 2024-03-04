@@ -17,7 +17,7 @@ ob_start();
     <link rel="stylesheet" href="style1.css"/>
 </head>
 <body>
-    <!-- <h1>Login Successful</h1> -->
+   
     <div class="sidebar" id="menu">
         <div class="logo">
             <img src="sks.jpg" alt="">
@@ -54,11 +54,11 @@ ob_start();
             <?php
             $connection = mysqli_connect("localhost", "root", "", "home");
             
-            // Initialize counts for each table
+           
             $count_coding = 1;
             $count_frontend = 1;
 
-            // Display coding skills
+          
             $statementSkill = "SELECT * FROM `coding`";
             $fetchSkill = mysqli_query($connection, $statementSkill);
             while ($rowSkill = mysqli_fetch_assoc($fetchSkill)) {
@@ -92,6 +92,45 @@ ob_start();
     </table>
     <form action="add_skill_form.php" method="get">
     <input type="submit" name="submit" class="update-home" value="ADD SKILL">
+    </form>
+</section>
+<section class="projects sections">
+    <h2>Projects</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>NO.</th>
+                <th>Link</th>
+                <th>Sider</th>
+                <th>Image</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $connection = mysqli_connect("localhost", "root", "", "home");
+            
+            
+            $statementProjects = "SELECT * FROM `project`";
+            $fetchProjects = mysqli_query($connection, $statementProjects);
+            $count_projects = 1;
+
+            while ($rowProject = mysqli_fetch_assoc($fetchProjects)) {
+                ?>
+                <tr>
+                    <td><?= $count_projects++ ?></td>
+                    <td><?= $rowProject['link'] ?></td>
+                    <td><?= $rowProject['sider'] ?></td>
+                    <td><?= $rowProject['image'] ?></td>
+                    <td><a href="delete_project.php?action=delete&id=<?= $rowProject['id'] ?>">delete</a></td>
+                </tr>
+                <?php
+            }
+            ?>
+        </tbody>
+    </table>
+    <form action="add_project_form.php" method="post">
+        <input type="submit" name="submit" class="update-home" value="ADD PROJECT">
     </form>
 </section>
 
@@ -154,7 +193,7 @@ ob_start();
                 </form>
 
                 <?php
-                // Assuming you have established a database connection
+               
                 
                 if (isset($_POST['submit'])) {
                     $picture = $_POST['picture'];
@@ -166,7 +205,7 @@ ob_start();
                     $code = $_POST['code'];
                     $linkdin = $_POST['linkdin'];
                    
-// Prepare SQL statement
+
                     $sql = "UPDATE hometable 
                     SET 
                     picture = :picture,
@@ -184,7 +223,7 @@ ob_start();
                     $username = "root";
                     $password = "";
                     $pdo = new PDO($dsn, $username, $password);
-                    // Prepare and execute the statement
+                    
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute([
                         'picture' => $picture,
@@ -199,7 +238,7 @@ ob_start();
                         
                     ]);
 
-                    // Check if the update was successful
+                  
                     if ($stmt->rowCount() > 0) {
                         header("Location: " . $_SERVER['PHP_SELF']);
                         ?>

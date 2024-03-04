@@ -1,4 +1,4 @@
-// script.js
+
 document.addEventListener('DOMContentLoaded', function () {
     const menuItems = document.querySelectorAll('#menu .menuitem a');
     const sections = document.querySelectorAll('.sections');
@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
             const sectionId = this.getAttribute('data-section');
 
-            // Hide all sections
+            
             sections.forEach(function (section) {
                 section.classList.remove('active');
             });
 
-            // Show the corresponding section
+            
             document.querySelector('.' + sectionId).classList.add('active');
         });
     });
