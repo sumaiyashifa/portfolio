@@ -10,7 +10,7 @@ $row=mysqli_fetch_assoc($fetch);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?php echo $row['name']?></title>
     <link rel="icon" href="https://i.ibb.co/zRsTj3p/Frame-1-37.png">
     <script src="https://kit.fontawesome.com/5ed9f8e5e4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" class="stylesheet">
@@ -102,7 +102,7 @@ $row=mysqli_fetch_assoc($fetch);
             ?>
             <?php
                 if($row['linkdin']){ ?>
-            <a href=<?=$row['linkdin']?> style="--i:11;"><i class="fa-brands fa-linkedin"></i></a>
+            <a href=<?=$row['linkdin']?>  target="_blank" style="--i:11;"><i class="fa-brands fa-linkedin"></i></a>
             <?php
                 }
             ?>
@@ -112,7 +112,24 @@ $row=mysqli_fetch_assoc($fetch);
       </section>
       
       <!-- Add this section after the previous sections -->
-
+          <section id="animated-section">
+        <div class="animated-background"></div>
+        <div class="center-content">
+          <h2 class="animated-text">Get to Know More</h2>
+        </div>
+        <div class="water-drop drop-1"></div>
+  <div class="water-drop drop-2"></div>
+  <div class="water-drop drop-3"></div>
+  <div class="water-drop drop-4"></div>
+  <div class="water-drop drop-5"></div>
+      </section>
+ <header> 
+    <!-- <h1>My Portfolio</h1> -->
+    <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+       <!-- <span class="slider round"></span> -->
+    </label>
+</header>  
 
     <section id="about">
       <!-- <p class="section__text__p1" style="color: aqua;">Get To Know More</p> -->
@@ -178,95 +195,31 @@ $row=mysqli_fetch_assoc($fetch);
               </style>
           <i class="fa-solid fa-code"></i>
           <h3 style="color: orange;">Coding Languages</h3>
-          <!-- <h3 style="color: aqua;">Coding Languages</h3>
-          <div class="ssk">
-             <h3 class="skillss__subtitle">FRONTEND</h3> 
-            <div class="skillss__data">
-              <span class="skillss__name">Java</span>
-              <span class="skillss__number">80%</span>
-             
-              </style>
-              <span class="skillss__bar s0"></span>
-            </div>
-            <div class="skillss__data">
-              <span class="skillss__name">Python</span>
-              <span class="skillss__number">60%</span>
-              <span class="skillss__bar s1"></span>
-            </div>
-            <div class="skillss__data">
-              <span class="skillss__name">C</span>
-              <span class="skillss__number">90%</span>
-              <span class="skillss__bar s2"></span>
-            </div>
-            <div class="skillss__data">
-              <span class="skillss__name">C++</span>
-              <span class="skillss__number">80%</span>
-              <span class="skillss__bar s3"></span>
-            </div>
-            <div class="skillss__data">
-              <span class="skillss__name">KOTLIN</span>
-              <span class="skillss__number">70%</span>
-              <span class="skillss__bar s4"></span>
-            </div>
-            <div class="skillss__data">
-              <span class="skillss__name">DART</span>
-              <span class="skillss__number">55%</span>
-              <span class="skillss__bar s5"></span>
-            </div>
-          </div> -->
-          <!-- <h2>Frontend</h2> -->
+          <?php
 
-          <div class="custom-skill">
-          <div class="skill__data">
-            <div class="custom-skill-name">JAVA</div>
-            <div class="skill-level">60%</div>
-            </div>
-            <div class="custom-skill-bar">
-              <div class="custom-skill-level load0" ></div>
-            </div>
+  $statementSkill="SELECT * FROM `coding`";
+  $fetchSkill=mysqli_query($connection,$statementSkill);
+  while($rowSkill=mysqli_fetch_assoc($fetchSkill)){
+    ?>
+
+  <div class="custom-skill">
+  <div class="skill__data">
+  <div class="custom-skill-name"><?= $rowSkill['skill_name']?></div>
+  <div class="skill-level"><?= $rowSkill['skill_level']."%"?></div>
+  </div>
+  
+  <div class="custom-skill-bar">
+    <div class="custom-skill-level load0"></div>
+  </div>
+</div>
+
+  <?php
+}
+
+?>
 
 
-
-          </div>
-          <div class="custom-skill">
-          <div class="skill__data">
-            <div class="custom-skill-name">PYTHON</div>
-            <div class="skill-level">70%</div>
-            </div>
-            <div class="custom-skill-bar">
-              <div class="custom-skill-level load0" ></div>
-            </div>
-          </div>
-          <div class="custom-skill">
-          <div class="skill__data">
-            <div class="custom-skill-name">C</div>
-            <div class="skill-level">75%</div>
-            </div>
-            <div class="custom-skill-bar">
-              <div class="custom-skill-level load0" ></div>
-            </div>
-          </div>
-         
-          <div class="custom-skill">
-            <div class="skill__data">
-            <div class="custom-skill-name">C++</div>
-            <div class="skill-level">80%</div>
-            </div>
-            
-            <div class="custom-skill-bar">
-              <div class="custom-skill-level load0"></div>
-            </div>
-          </div>
-
-          <div class="custom-skill">
-          <div class="skill__data">
-            <div class="custom-skill-name">DART</div>
-            <div class="skill-level">45%</div>
-            </div>
-            <div class="custom-skill-bar">
-              <div class="custom-skill-level load0" ></div>
-            </div>
-          </div>
+          
           <!-- Add more frontend skills as needed -->
         
         </div>
@@ -276,48 +229,35 @@ $row=mysqli_fetch_assoc($fetch);
           <h3 style="color: orange;">Frontend Development</h3>
           <!-- <div class="ssk"> -->
             <!-- <h3 class="skillss__subtitle">BACKEND</h3> -->
-            <div class="custom-skill">
-            <div class="skill__data">
-            <div class="custom-skill-name">C++</div>
-            <div class="skill-level">80%</div>
-            </div>
             
-            <div class="custom-skill-bar">
-              <div class="custom-skill-level load0"></div>
-            </div>
-          </div>
+            
+            <?php
 
-          <div class="custom-skill">
-            <div class="skill__data">
-            <div class="custom-skill-name">C++</div>
-            <div class="skill-level">80%</div>
-            </div>
-            
-            <div class="custom-skill-bar">
-              <div class="custom-skill-level load0"></div>
-            </div>
-          </div>
+$statementSkill="SELECT * FROM `frontend`";
+$fetchSkill=mysqli_query($connection,$statementSkill);
+while($rowSkill=mysqli_fetch_assoc($fetchSkill)){
+  ?>
+
+  <div class="custom-skill">
+  <div class="skill__data">
+  <div class="custom-skill-name"><?= $rowSkill['skill_name']?></div>
+  <div class="skill-level"><?= $rowSkill['skill_level']."%"?></div>
+  </div>
+  
+  <div class="custom-skill-bar">
+    <div class="custom-skill-level load0"></div>
+  </div>
+</div>
+
+  <?php
+}
+
+?>
+
+         
           
-          <div class="custom-skill">
-            <div class="skill__data">
-            <div class="custom-skill-name">C++</div>
-            <div class="skill-level">80%</div>
-            </div>
-            
-            <div class="custom-skill-bar">
-              <div class="custom-skill-level load0"></div>
-            </div>
-          </div>
-          <div class="custom-skill">
-            <div class="skill__data">
-            <div class="custom-skill-name">C++</div>
-            <div class="skill-level">80%</div>
-            </div>
-            
-            <div class="custom-skill-bar">
-              <div class="custom-skill-level load0"></div>
-            </div>
-          </div>
+          
+         
           <img
         src="arrow.png"
         alt="Arrow icon"
@@ -387,15 +327,23 @@ $row=mysqli_fetch_assoc($fetch);
    
 </section>
 
-      <section id="projects">
+    <section id="projects">
         <p class="section__text__p1" style="color: aqua;">Browse My Recent</p>
         <h1 class="title" style="color: orange;">PROJECTS</h1>
         <div class="experience-details-container">
           <div class="about-containers">
-            <div class="details-container color-container">
+            
+          <?php
+
+  $statementProject="SELECT * FROM `project`";
+  $fetchProject=mysqli_query($connection,$statementProject);
+  while($rowProject=mysqli_fetch_assoc($fetchProject)){
+    ?>
+
+<div class="details-container color-container">
               <div class="article-container">
                 <img
-                  src="student.png"
+                  src=<?= $rowProject['image']?>
                   alt="Project 1"
                   class="project-img"
                 />
@@ -404,64 +352,28 @@ $row=mysqli_fetch_assoc($fetch);
               <div class="btn-container">
                 <button
                   class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/sumaiyashifa/StudentManagement.git'"
+                  onclick="location.href=<?= $rowProject['link']?>"
                 >
                   Github
                 </button>
                 
               </div>
               <div class="project-slider">
-                <span>
-                  this is a student management system project which efficiently
-                   handle student data, including enrollment, academic records, attendance, and communication</span>
+              <span>
+                <?= $rowProject['sider']?>
+              </span>
               </div>
             </div>
+
+  <?php
+}
+
+?>
+
+
+
+       
             
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="office.png"
-                  alt="Project 2"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="experience-sub-title project-title">Project Two</h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/sumaiyashifa/Office-Management-System.git'"
-                >
-                  Github
-                </button>
-                
-              </div>
-              <div class="project-slider"><span>
-                This is an office management system in C++ which designed to 
-                streamline various administrative tasks within an office environment</span></div>
-              
-            </div>
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="sliderg.png"
-                  alt="Project 3"
-                  class="project-img"
-                />
-              </div>
-              
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/sumaiyashifa/slide-game.git'"
-                >
-                  Github
-                </button>
-                
-              </div>
-              <div class="project-slider"><span>this is a slider game project typically involves creating a web-based puzzle game 
-                where players rearrange tiles to form a complete image or sequence</span></div>
-              
-            </div>
           </div>
         </div>
         <img
@@ -490,16 +402,33 @@ $row=mysqli_fetch_assoc($fetch);
 
       <section id="contact">
         <p class="section__text__p1" style="color: aqua;">Get In Touch</p>
-        <h1 class="title" style="color: orange;">Contact <span style="color: white;">Me</span></h1>
+        <h1 class="title" style="color: orange;">Contact <span style="color:white;">Me</span></h1>
         <div class="contact-container">
           <div class="contact-form">
-            <form action="#" method="post">
+
+            <form action="index.php" method="POST">
               <input type="text" name="name" placeholder="Your Name" required>
               <input type="email" name="email" placeholder="Your Email" required>
-              <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-              <button type="submit">Send Message</button>
+              <textarea type="text" name="message" placeholder="Your Message" rows="5" required></textarea>
+              <button type="submit" name="submit">Send Message</button>
             </form>
+            
+          <?php
+          if (isset($_POST["submit"])) {
+
+          $sendername = $_POST['name'];
+          $email = $_POST['email'];
+          $message = $_POST['message'];
+          if ($sendername && $email && $message) {
+            $query = "INSERT INTO contact (name, email, msg) VALUES ('$sendername','$email','$message')";
+            $result = mysqli_query($connection, $query);
+            mysqli_close($connection);
+          }
+        }
+        ?>
           </div>
+
+
           <div class="contact-info">
             <h2 style="color: aqua;">Contact Information</h2>
             <ul>
@@ -510,6 +439,9 @@ $row=mysqli_fetch_assoc($fetch);
           </div>
         </div>
       </section>      
+
+
+
     <footer>
       <div class="footer-container">
         <div class="footer-logo" style="color: orange;">Sumaiya Khan</div>

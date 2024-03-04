@@ -6,21 +6,27 @@
   cursor: auto;
 }
 :root{
-    --bg-color:#323946;
-    --second-bg-color:rgb(50, 57, 70);
-    --text-color:#fff;
-    --main-color:#0ef;
+  --fcolor:rgba(147, 150, 154, 0.833);
+    --bg-color:#a7acb3;
+    --second-bg-color:rgba(147, 150, 154, 0.833);
+   --text-color:white;
+    --main-color:rgb(27, 36, 62);
 
 }
-/* Light mode styles */
+
 body {
-  background-color: #f5f5f5; /* Default background color for light mode */
-  transition: background-color 0.5s ease; /* Smooth transition for background color */
+  background-color: #f5f5f5; 
+  transition: background-color 0.5s ease;
 }
 
-/* Dark mode styles */
+
 body.dark-mode {
-  background-color: #020a1d; /* Background color for dark mode */
+  --fcolor:rgb(5, 40, 61);
+   --second-bg-color: rgb(5, 40, 61);
+  --text-color:#fff;
+  background-color: rgb(1, 28, 45);
+  --main-color:rgba(0, 255, 255, 0.973);
+  
 }
 
 body {
@@ -54,11 +60,8 @@ nav {
     font-size: 1.5rem;
   }
   a{
-    /* font-size: 1.7rem; */
-    color: var(--text-color);
-     /* margin-left: 4rem; 
-     transition: .3s;  */
-    text-decoration: none;
+  color: var(--text-color);
+  text-decoration: none;
   text-decoration-color: white;
   animation: slidetop .5s ease forwards;
   animation-delay: calc(.2s * var(--i));
@@ -212,12 +215,7 @@ section {
   display: flex;
   height: 400px;
   width: 400px;
-  /* opacity: 0; */
- 
-   /* border: 2px solid aqua; 
-   border-radius: 50%; 
-   box-shadow: 0 0 1rem var(--main-color);   
-  margin: auto 0; */
+  
 }
 @keyframes zoomin{
   0%{
@@ -253,8 +251,6 @@ section {
 
 .section__text__p1 {
   text-align: center;
-  /* animation: slidebottom 1s ease forwards;
-  animation-delay: .7s; */
 }
 @keyframes slidebottom{
   0%{
@@ -301,7 +297,7 @@ section {
   box-shadow: 0 0 1rem var(--main-color);
 }
 
-/* ICONS */
+
 
 .icon {
   cursor: pointer;
@@ -330,6 +326,9 @@ section {
 .btn-color-2:hover {
   cursor: pointer;
 }
+.article-container{
+ height:85%;
+}
 
 .btn-color-1,
 .btn-color-2:hover {
@@ -348,7 +347,7 @@ section {
 }
 .btn-color-1{
   color: aqua;
-  /* background: none; */
+  
 }
 
 .btn-color-2:hover {
@@ -405,8 +404,7 @@ section {
   background: var(--second-bg-color);
   border-radius: 2rem;
   border: rgb(163, 163, 163) 0.1rem solid;
-  /* border-color: rgb(163, 163, 163); */
-  /* box-shadow: 0 0 1rem var(--main-color); */
+  
   text-align: center;
 }
 .details-container:hover{
@@ -477,16 +475,16 @@ section {
 }
 
 
-/* Custom arrow for list items */
+
 .skill-category li:before {
-  content: '\2192'; /* Unicode arrow character */
+  content: '\2192'; 
   color: orange;
   font-size: 1.2em;
   margin-right: 5px;
   position: absolute;
-  left: 50px; /* Adjust the position of the arrow */
-  top: 50%; /* Align the arrow vertically */
-  transform: translateY(-50%); /* Adjust the position as needed */
+  left: 50px; 
+  top: 50%; 
+  transform: translateY(-50%); 
 }
 
 #projects {
@@ -517,19 +515,19 @@ section {
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Adjust transition for opacity and transform */
-  transform: translateY(-100%); /* Start with the slider off-screen */
+  transition: opacity 0.5s ease, transform 0.5s ease; 
+  transform: translateY(-100%);
 }
 
 .details-container:hover .project-slider {
   opacity: 1;
-  transform: translateY(0); /* Move the slider onto the screen */
+  transform: translateY(0); 
 }
 
 .btn-container .project-btn {
   position: relative;
-  z-index: 2; /* Ensure the link is above the slider */
-  pointer-events: auto; /* Allow pointer events on the link */
+  z-index: 2; 
+  pointer-events: auto;
 }
 .project-data {
   position: absolute;
@@ -552,7 +550,7 @@ section {
 
 .project-title {
   margin: 1rem;
-  color: white; /* Change text color to white */
+  color: white; 
 }
 
 .btn-container {
@@ -560,17 +558,17 @@ section {
 }
 
 .project-btn {
-  color: black; /* Change button text color */
+  color: black; 
   border-color: rgb(163, 163, 163);
 }
 
 .btn-container .project-btn {
   display: block;
-  margin-bottom: 10px; /* Adjust button margin */
+  margin-bottom: 10px; 
 }
 
 .btn-container .project-btn:last-child {
-  margin-bottom: 0; /* Remove margin from last button */
+  margin-bottom: 0; 
 }
 
 
@@ -582,10 +580,10 @@ footer {
 footer p {
   text-align: center;
 }
-/* Contact Section */
+
 #contact {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--fcolor);
+  
   padding: 4rem 0;
   text-align: center;
   animation:zoomin 1s ease forwards;
@@ -595,7 +593,7 @@ footer p {
 .contact-container {
   display: flex;
   justify-content: center;
-  gap: 4rem;
+  
 }
 
 .contact-form {
@@ -664,11 +662,11 @@ footer p {
   margin-right: 20px;
 }
 footer {
-  background-color: #2d323e;
+  background-color: var(--fcolor);
   color: #fff;
   padding: 2rem 0;
   text-align: center;
-  margin-top: 500px;
+  margin-top: 60px;
 }
 
 .footer-container {
@@ -715,7 +713,7 @@ footer {
   color: #ffa500;
 }
 
-/* Style for skills section */
+
 .skills-container {
   margin-top: 50px;
 }
@@ -737,10 +735,10 @@ footer {
 .skill-bar-fill {
   height: 100%;
   border-radius: 5px;
-  background-color: #4caf50; /* Change this color to match your design */
+  background-color: #4caf50; 
 }
 
-/* Responsive adjustments */
+
 @media screen and (max-width: 768px) {
   .skills-container {
     margin-top: 30px;
@@ -753,8 +751,8 @@ footer {
 .skills__container {
   display: grid;
  
-  grid-template-columns: repeat(2, 1fr); /* Ensure two columns */
-  gap: 30px; /* Add gap between items */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
 }
 
 .skills__content {
@@ -764,7 +762,7 @@ footer {
   transition: background-color 0.3s ease;
   width: 80%;
   height: 200px;
-  background-color: #2d323e;
+  background-color: var(--second-bg-color);
 }
 
 .skills__subtitle {
@@ -784,31 +782,28 @@ footer {
   margin-bottom: 20px;
 }
 
-/* Center align "My Skills" text */
 .skills__container h2 {
   text-align: center;
 }
 
-/* Add borders with different colors */
+
 .skills__content:nth-child(odd) {
-  border: 2px solid #ff6347; /* Red */
+  border: 2px solid #ff6347; 
 }
 
 .skills__content:nth-child(even) {
-  border: 2px solid #00bfff; /* Blue */
+  border: 2px solid #00bfff;
 }
 .skills__content:hover {
-  background-color: #909fa5; /* Change the background color on hover */
+  background-color: #909fa5;
 }
 
 @media screen and (max-width: 768px) {
   .skills__container {
-    grid-template-columns: repeat(1, 1fr); /* Switch to one column on smaller screens */
+    grid-template-columns: repeat(1, 1fr); 
   }
 }
-/* Add your existing CSS styles here */
 
-/* Dark mode toggle styles */
 .switch {
   position: relative;
   display: inline-block;
@@ -847,11 +842,11 @@ footer {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: aqua;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px aqua;
 }
 
 input:checked + .slider:before {
@@ -864,7 +859,7 @@ border-radius: 50%;
 transition: all 300ms ease;
 
 }
-/* Add this CSS to style the progress bars */
+
 
 
 .skillss_section {
@@ -955,31 +950,29 @@ transition: all 300ms ease;
   line-height: 1.5;
   white-space: pre-wrap;
 }
-/* Background image styles */
-/* Styles for the animated background */
-/* Styles for the animated section */
+
 #animated-section {
-  position: relative; /* Make it relative to its container */
-  overflow: hidden; /* Hide any overflow */
-  height: 100vh; /* Adjust the height as needed */
+  position: relative; 
+  overflow: hidden; 
+  height: 80vh;
 }
 
 .animated-background {
-  position: absolute; /* Position the background absolutely */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('drop.jpg'); /* Replace 'your-background-image.jpg' with your image path */
+  background-image: url('drop.jpg'); 
   background-size: auto;
   z-index: -1;
   animation: background-animation 30s infinite;
 }
 .water-drop {
   position: absolute;
-  width: 50px; /* Adjust size of water drop */
+  width: 50px; 
   height: 50px;
-  background-image: url('sdrop.webp'); /* Water drop image */
+  background-image: url('sdrop.webp'); 
   background-size: contain;
   animation: drop-animation 10s linear infinite;
 }
@@ -997,15 +990,15 @@ transition: all 300ms ease;
 }
 @keyframes drop-animation {
   0% {
-    transform: translateY(100vh); /* Start from bottom of the viewport */
+    transform: translateY(100vh); 
   }
   100% {
-    transform: translateY(-100%); /* Move to top of the viewport */
+    transform: translateY(-100%); 
   }
 }
-/* Styles for the center content */
+
 .center-content {
-  position: absolute; /* Position the content absolutely */
+  position: absolute; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -1013,61 +1006,62 @@ transition: all 300ms ease;
   text-align: center;
 }
 
-/* Styles for the animated text */
+
 .animated-text {
+  text-align: center;
   font-size: 3rem;
   color: white;
   text-shadow: 2px 2px rgb(0, 123, 255);
-  font-family: fantasy; /* Use a fantasy font for a fantasy-like effect */
+  font-family: fantasy;
   animation: text-animation 2s infinite;
 }
 .water-drop.drop-1 {
-  left: 10%; /* Adjust left position of the first water drop */
-  animation-delay: 1s; /* Delay animation for a smooth effect */
+  left: 10%; 
+  animation-delay: 1s;
 }
 
 .water-drop.drop-2 {
- bottom: 30%; /* Adjust left position of the second water drop */
-  animation-delay: 2s; /* Delay animation */
+ bottom: 30%; 
+  animation-delay: 2s; 
 }
 
 .water-drop.drop-3 {
-  left: 30%; /* Adjust left position of the third water drop */
-  animation-delay: 1s; /* Delay animation */
+  left: 30%; 
+  animation-delay: 1s;
 }
 
 .water-drop.drop-4 {
-  right: 40%; /* Adjust left position of the fourth water drop */
-  animation-delay: 1; /* Delay animation */
+  right: 40%;
+  animation-delay: 1;
 }
 
 .water-drop.drop-5 {
    left: 60%;
   bottom: 50%;  
-  animation-delay: 1; /* Delay animation */
+  animation-delay: 1; 
 }
 .water-drop.drop-6 {
   left: 70%;
   bottom: 60%;
-  animation-delay: 1s; /* Delay animation */
+  animation-delay: 1s;
 }
 .water-drop.drop-7 {
   left: 80%; 
   bottom: 10%;
-  animation-delay: 1s; /* Delay animation */
+  animation-delay: 1s;
 }
 .water-drop.drop-8 {
   left: 90%; 
   top: 70%;
-  animation-delay: 1s; /* Delay animation */
+  animation-delay: 1s;
 }
 .water-drop.drop-9 {
   left: 100%; 
-  animation-delay: 1s; /* Delay animation */
+  animation-delay: 1s;
 }
 .water-drop.drop-10 {
-  left: 50%; /* Adjust left position of the fifth water drop */
-  animation-delay: 8s; /* Delay animation */
+  left: 50%;
+  animation-delay: 8s; 
 }
 @keyframes text-animation {
   0% {
@@ -1106,8 +1100,8 @@ transition: all 300ms ease;
 
 .custom-skill-level {
   height: 100%;
-  background-color: var(--main-color); /* Change color as needed */
-  transition: width 1s ease; /* Adjust animation duration as needed */
+  background-color: var(--main-color);
+  transition: width 1s ease; 
 }
 
 
@@ -1118,7 +1112,7 @@ transition: all 300ms ease;
   position: relative;
   margin-left: -30px;
   width: 100%;
-  height: 450px; /* Adjust height as needed */
+  height: 450px; 
 }
 
 .slide-pic .slideshow {
@@ -1126,13 +1120,13 @@ transition: all 300ms ease;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%; /* Adjust width as needed */
-  height: 100%; /* Adjust height as needed */
+  width: 50%; 
+  height: 100%; 
   box-shadow: 0px 5px 8px rgba(19, 181, 225, 0.3);
   animation: animate-slideshow 20s infinite;
-  background-size: contain; /* Ensure the background image covers the entire area */
-  background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* Prevent background image from repeating */
+  background-size: contain; 
+  background-position: center;
+  background-repeat: no-repeat; 
 } 
 
 @keyframes animate-slideshow {
@@ -1159,7 +1153,7 @@ transition: all 300ms ease;
 .section-title {
   margin-top: 50px;
   text-align: center;
-  /* font-size: 24px; */
+ 
   color: #1465a3; /* Adjust the color as needed */
    /* Adjust the margin as needed */
 }
